@@ -1,0 +1,29 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static './style/style.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="menu" onclick="burgerMenuAction()" >Menu</a>
+            <!-- onclick="burgerMenuAction() при нажатии выполняет функцию  -->
+            <div class="desktop-menu" id="desktop-menu" style="display: none">
+                <ul>
+                    <ol><a href="{% url 'homePage'%}">Main</a></ol>
+                    <ol> <a href="{% url 'aboutPage'%}">About</a></ol>
+                    <ol> <a href="#">Contant</a></ol>
+                </ul>
+            </div>
+        </div>
+    </header>
+   {% block content %}
+    {% endblock %}
+    <script src="{% static './js/script.js' %}"></script>
+</body>
+</html>
